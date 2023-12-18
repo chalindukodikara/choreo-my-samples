@@ -1,32 +1,31 @@
 import ballerina/log;
 import ballerina/time;
 
-public type Value record {
-    string value;
-    string valueRef;
+public type Information record {
+    string infoId;
+    string location;
+    string description;
 };
 
-public type Environment record {
-    string id;
-    EnvType envType;
+public type Education record {
+    string educationType;
+    Certificate certificates;
 };
 
-public type EnvType record {
-    string id;
+public type Certificate record {
     string name;
     string description;
-    string environmentTypeUuid;
 };
 
-public type ExampleValue record {
-    Value value;
-    string message;
+public type User record {
     string id;
-    Environment env;
+    string name;
+    Education education;
+    Information info;
 };
 
 configurable time:Date date = ?;
-configurable ExampleValue exampleValue = ?;
+configurable User user = ?;
 configurable string message = "Hello";
 
 public function main() {
