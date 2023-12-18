@@ -1,7 +1,7 @@
 import ballerina/log;
 import ballerina/time;
 
-public type Information record {
+type Information record {
     string infoId;
     string location;
     string description;
@@ -17,11 +17,17 @@ public type Certificate record {
     string description;
 };
 
+public type Age record {
+    int years;
+    int months;
+};
+
 public type User record {
     string id;
     string name;
-    Education education;
-    Information info;
+    *Information;
+    Age age;
+    Education education?;
 };
 
 configurable time:Date date = ?;
